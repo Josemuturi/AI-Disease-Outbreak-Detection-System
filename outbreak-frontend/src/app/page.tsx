@@ -1,7 +1,6 @@
-import Sidebar from '@/components/Sidebar';
-import StatusGrid from '@/components/StatusGrid';
-import OutbreakChart from '@/components/OutbreakChart';
-
+import Sidebar from '../components/Sidebar';
+import StatusGrid from '../components/StatusGrid';
+import OutbreakChart from '../components/OutbreakChart';
 export default function Home() {
   return (
     <main className="flex min-h-screen bg-slate-50">
