@@ -1,6 +1,7 @@
 import Sidebar from '../components/Sidebar';
 import StatusGrid from '../components/StatusGrid';
 import OutbreakChart from '../components/OutbreakChart';
+import ReportButton from '../components/ReportButton';
 export default function Home() {
   return (
     <main className="flex min-h-screen bg-slate-50">
@@ -11,9 +12,9 @@ export default function Home() {
             <h2 className="text-2xl font-bold text-slate-800">System Overview</h2>
             <p className="text-slate-500">Early Warning Status: Monitoring 47 Counties</p>
           </div>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
+          <ReportButton className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
             Generate Report
-          </button>
+          </ReportButton>
         </header>
 
         <StatusGrid />
