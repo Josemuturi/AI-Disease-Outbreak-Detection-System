@@ -2,6 +2,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes import router as v1_router
+from database import init_db
+
+init_db()
 
 app = FastAPI(
     title="AI-Driven Disease Outbreak Surveillance System",
@@ -12,7 +15,7 @@ app = FastAPI(
 # 1. CORS Setup - Allowing the Next.js frontend to connect
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3001", "http://127.0.0.1:3001"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

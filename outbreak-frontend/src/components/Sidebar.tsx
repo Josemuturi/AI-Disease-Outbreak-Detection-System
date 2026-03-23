@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { 
   LayoutDashboard, 
@@ -8,7 +9,20 @@ import {
   Activity
 } from 'lucide-react'; // These are standard, clean icons
 
-export default function Sidebar() {
+export default function Sidebar({ theme }: { theme?: string }) {
+  const [userRole, setUserRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt_token");
+    if (token) {
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        setUserRole(payload.role);
+      } catch (e) {
+        console.error("Failed to decode token", e);
+      }
+    }
+  }, []);
   return (
     <div className="w-64 h-screen bg-slate-900 text-white p-6 fixed flex flex-col justify-between">
       <div>
@@ -18,20 +32,27 @@ export default function Sidebar() {
         </div>
         
         <nav className="space-y-2">
-          <Link href="/" className="flex items-center p-3 bg-blue-600 rounded-lg transition-colors cursor-pointer">
+          <Link href="/dashboard" className="flex items-center p-3 bg-blue-600 rounded-lg transition-colors cursor-pointer">
             <LayoutDashboard className="w-5 h-5 mr-3" />
             <span>Dashboard</span>
           </Link>
           
-          <Link href="/risk-map" className="flex items-center p-3 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer text-slate-400 hover:text-white">
+          <Link href="/alerts" className="flex items-center p-3 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer text-slate-400 hover:text-white">
             <Map className="w-5 h-5 mr-3" />
-            <span>Risk Map</span>
+            <span>Alerts</span>
           </Link>
           
-          <Link href="/health-data" className="flex items-center p-3 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer text-slate-400 hover:text-white">
+          <Link href="/reports" className="flex items-center p-3 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer text-slate-400 hover:text-white">
             <Database className="w-5 h-5 mr-3" />
-            <span>Health Data</span>
+            <span>Reports</span>
           </Link>
+
+          {userRole === 'Administrator' && (
+            <Link href="/admin" className="flex items-center p-3 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer text-slate-400 hover:text-white">
+              <Activity className="w-5 h-5 mr-3" />
+              <span>Admin Portal</span>
+            </Link>
+          )}
 
           <div className="pt-4 mt-4 border-t border-slate-800">
              <Link href="/settings" className="flex items-center p-3 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer text-slate-400 hover:text-white">

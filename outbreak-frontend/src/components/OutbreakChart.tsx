@@ -18,7 +18,7 @@ const OutbreakChart = () => {
   useEffect(() => {
     const fetchTrends = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/prediction-trends');
+        const response = await fetch('http://127.0.0.1:8001/api/v1/prediction-trends');
         const json = await response.json();
         
         // Mapping backend 'day' to 'month' and 'value' to 'predicted'

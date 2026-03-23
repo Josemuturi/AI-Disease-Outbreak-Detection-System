@@ -13,7 +13,7 @@ export default function StatusGrid() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/dashboard-stats');
+        const response = await fetch('http://127.0.0.1:8001/api/v1/dashboard-stats');
         const result = await response.json();
         setData(result);
       } catch (error) {

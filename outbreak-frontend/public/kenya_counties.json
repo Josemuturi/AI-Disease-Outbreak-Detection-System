@@ -1,0 +1,53 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": { "name": "Nairobi", "id": 1 },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [36.65, -1.15], [37.10, -1.15], [37.10, -1.45], [36.65, -1.45], [36.65, -1.15]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": { "name": "Mombasa", "id": 2 },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [39.50, -3.90], [39.75, -3.90], [39.75, -4.15], [39.50, -4.15], [39.50, -3.90]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": { "name": "Kisumu", "id": 3 },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [34.50, -0.05], [35.00, -0.05], [35.00, -0.30], [34.50, -0.30], [34.50, -0.05]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": { "name": "Nakuru", "id": 4 },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [35.80, -0.20], [36.50, -0.20], [36.50, -0.80], [35.80, -0.80], [35.80, -0.20]
+            ]
+          ]
+        }
+      }
+    ]
+  }
